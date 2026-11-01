@@ -1,0 +1,3739 @@
+// CityPulse Client-Side Mock Database Engine
+// Stage 1: Autonomous in-memory & localStorage civic store with realistic complaint data
+
+const INITIAL_COMPLAINTS = [
+  {
+    "id": "CP-2026-BLR01",
+    "title": "Massive deep crater near 12th Main signal on 100ft Road",
+    "description": "A very large pothole has opened up right after the rain near 12th Main bus stop. Two two-wheelers skidded last evening. Highly dangerous for nighttime traffic.",
+    "category": "Roads and potholes",
+    "subcategory": "Deep asphalt pothole",
+    "locality": "Indiranagar",
+    "ward": "Ward 112 - Domlur",
+    "address": "100ft Road, near 12th Main Junction, Indiranagar",
+    "lat": 12.9719,
+    "lon": 77.6412,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "in_progress",
+    "severity": "High",
+    "severity_score": 67.0,
+    "assigned_department": "Road Infrastructure & Engineering Department",
+    "officer": {
+      "name": "Er. Rajesh Verma",
+      "designation": "Executive Engineer (Roads)",
+      "phone": "+91 98450 11223"
+    },
+    "upvotes_count": 3,
+    "created_at": "2026-10-29T14:08:53.644969",
+    "updated_at": "2026-10-31T14:08:53.644969",
+    "ai_analysis": {
+      "detected_issue": "A very large pothole has opened up right after the rain near 12th Main bus stop. Two two-wheelers skidded last evening. ",
+      "confidence": "92%",
+      "suggested_department": "Road Infrastructure & Engineering Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids and fatal accidents at high speed",
+        "Severe axle damage to passing public transport buses"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-29 14:08",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-29 14:08",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Road Infrastructure & Engineering Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Er. Rajesh Verma",
+        "desc": "Work Order #-BLR01 issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "in-progress"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-BLR02",
+    "title": "Severe road crater 50 meters from 12th Main pedestrian crossing",
+    "description": "Hazardous road depression and loose asphalt gravel right next to the metro pillar on 100ft road. Causing severe traffic bottlenecks.",
+    "category": "Roads and potholes",
+    "subcategory": "Deep asphalt pothole",
+    "locality": "Indiranagar",
+    "ward": "Ward 112 - Domlur",
+    "address": "Opposite Metro Pillar 140, 100ft Road, Indiranagar",
+    "lat": 12.9722,
+    "lon": 77.6415,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_2.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 65.5,
+    "assigned_department": "Road Infrastructure & Engineering Department",
+    "officer": {
+      "name": "Er. Rajesh Verma",
+      "designation": "Executive Engineer (Roads)",
+      "phone": "+91 98450 11223"
+    },
+    "upvotes_count": 3,
+    "created_at": "2026-10-30T14:08:53.644969",
+    "updated_at": "2026-10-31T14:08:53.644969",
+    "ai_analysis": {
+      "detected_issue": "Hazardous road depression and loose asphalt gravel right next to the metro pillar on 100ft road. Causing severe traffic ",
+      "confidence": "92%",
+      "suggested_department": "Road Infrastructure & Engineering Department",
+      "safety_concerns": [
+        "Traffic bottleneck and risk to crossing pedestrians"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-30 14:08",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-30 14:08",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Road Infrastructure & Engineering Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Road Infrastructure & Engineering Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-BLR03",
+    "title": "Choked storm water drain causing 2-foot waterlogging at Sony Signal",
+    "description": "The underground culvert is completely jammed with plastic debris and construction muck. Even light rain leads to heavy flooding, submerging the pedestrian walkway.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain",
+    "locality": "Koramangala",
+    "ward": "Ward 151 - Koramangala",
+    "address": "80ft Road, near Sony World Signal, Koramangala 4th Block",
+    "lat": 12.9344,
+    "lon": 77.6288,
+    "media_urls": [
+      "assets/uploads/evidence_drainage.svg"
+    ],
+    "resolved_photo": "assets/uploads/resolved_drainage.svg",
+    "status": "resolved",
+    "severity": "High",
+    "severity_score": 56.5,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-29T14:08:53.644969",
+    "updated_at": "2026-10-31T14:08:53.644969",
+    "ai_analysis": {
+      "detected_issue": "The underground culvert is completely jammed with plastic debris and construction muck. Even light rain leads to heavy f",
+      "confidence": "92%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Roadway inundation and stagnant contaminated floodwater"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-29 14:08",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-29 14:08",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Er. Vikram Gowda",
+        "desc": "Work Order #-BLR03 issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "completed"
+      },
+      {
+        "step": 5,
+        "title": "Work Completed & Verified",
+        "time": "2026-10-31 14:30",
+        "actor": "Er. Vikram Gowda",
+        "desc": "Repair completed. Photographic evidence uploaded and verified.",
+        "status": "completed"
+      },
+      {
+        "step": 6,
+        "title": "Citizen Sign-off & Case Closed",
+        "time": "2026-10-31 15:45",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Resolution confirmed with 5-star rating. Grievance closed.",
+        "status": "completed"
+      }
+    ],
+    "feedback": {
+      "rating": 5,
+      "comment": "Issue was inspected and resolved efficiently by the ward team. Thank you!"
+    }
+  },
+  {
+    "id": "CP-2026-BLR04",
+    "title": "Commercial garbage dumping spot overflowing for 4 days",
+    "description": "Commercial restaurants have dumped unsegregated food waste and polythene on the corner of 27th Main. Heavy stench, stray cattle, and dog nuisance.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "HSR Layout",
+    "ward": "Ward 174 - HSR Layout",
+    "address": "27th Main, Sector 1, HSR Layout",
+    "lat": 12.9116,
+    "lon": 77.6534,
+    "media_urls": [
+      "assets/uploads/evidence_garbage.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 56.5,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-28T14:08:53.644969",
+    "updated_at": "2026-10-31T14:08:53.644969",
+    "ai_analysis": {
+      "detected_issue": "Commercial restaurants have dumped unsegregated food waste and polythene on the corner of 27th Main. Heavy stench, stray",
+      "confidence": "92%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Severe public health vector breeding and foul airborne odor"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-28 14:08",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-28 14:08",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Solid Waste Management Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-BLR05",
+    "title": "Drinking water main line leak wasting thousands of liters",
+    "description": "BWSSB potable water pipeline is cracked. High pressure water is bubbling through the road surface, eroding the foundation of the road.",
+    "category": "Water supply and leakage",
+    "subcategory": "Underground potable water pipe fissure",
+    "locality": "Malleshwaram",
+    "ward": "Ward 65 - Kadu Malleshwaram",
+    "address": "8th Cross, Margosa Road, Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_water.svg"
+    ],
+    "resolved_photo": "assets/uploads/resolved_water.svg",
+    "status": "resolved",
+    "severity": "High",
+    "severity_score": 56.5,
+    "assigned_department": "Water Supply and Sewerage Board",
+    "officer": {
+      "name": "Er. S. Narayanan",
+      "designation": "Assistant Executive Engineer (BWSSB)",
+      "phone": "+91 98451 22334"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-30T14:08:53.644969",
+    "updated_at": "2026-10-31T14:08:53.644969",
+    "ai_analysis": {
+      "detected_issue": "BWSSB potable water pipeline is cracked. High pressure water is bubbling through the road surface, eroding the foundatio",
+      "confidence": "92%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Massive loss of treated municipal drinking water and road sub-base erosion"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-30 14:08",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-30 14:08",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Water Supply and Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Er. S. Narayanan",
+        "desc": "Work Order #-BLR05 issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "completed"
+      },
+      {
+        "step": 5,
+        "title": "Work Completed & Verified",
+        "time": "2026-10-31 14:30",
+        "actor": "Er. S. Narayanan",
+        "desc": "Repair completed. Photographic evidence uploaded and verified.",
+        "status": "completed"
+      },
+      {
+        "step": 6,
+        "title": "Citizen Sign-off & Case Closed",
+        "time": "2026-10-31 15:45",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Resolution confirmed with 5-star rating. Grievance closed.",
+        "status": "completed"
+      }
+    ],
+    "feedback": {
+      "rating": 5,
+      "comment": "Issue was inspected and resolved efficiently by the ward team. Thank you!"
+    }
+  },
+  {
+    "id": "CP-2026-BLR06",
+    "title": "Complete stretch of 8 streetlights dark with exposed junction wire",
+    "description": "From Hope Farm junction towards ITPL, 8 consecutive streetlights have failed. An electrical pole has its junction box open with exposed copper wires.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination & open junction",
+    "locality": "Whitefield",
+    "ward": "Ward 84 - Hagadur",
+    "address": "ITPL Main Road, near Hope Farm Circle, Whitefield",
+    "lat": 12.985,
+    "lon": 77.744,
+    "media_urls": [
+      "assets/uploads/evidence_lights.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 64.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-30T14:08:53.644969",
+    "updated_at": "2026-10-31T14:08:53.644969",
+    "ai_analysis": {
+      "detected_issue": "From Hope Farm junction towards ITPL, 8 consecutive streetlights have failed. An electrical pole has its junction box op",
+      "confidence": "92%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "Exposed live electrical conductor poses fatal electrocution risk during rain",
+        "Pitch dark corridor increases pedestrian vulnerability"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-30 14:08",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-30 14:08",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-4A4290",
+    "title": "Water Supply And Leakage: Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+    "description": "Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+    "category": "Water supply and leakage",
+    "subcategory": "Citizen-reviewed classification",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Water Supply and Sewerage Board",
+    "officer": {
+      "name": "Er. S. Narayanan",
+      "designation": "Assistant Executive Engineer (BWSSB)",
+      "phone": "+91 98451 22334"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.349828",
+    "updated_at": "2026-10-31T16:33:14.349828",
+    "ai_analysis": {
+      "detected_issue": "Water Supply And Leakage: Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+      "confidence": "95%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Citizen reviewed priority: High"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Water Supply and Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Water Supply and Sewerage Board",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-ADFC3A",
+    "title": "Garbage And Sanitation near Bengaluru",
+    "description": "Garbage dump near park entrance.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.96,
+    "lon": 77.63,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "disputed",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.288861",
+    "updated_at": "2026-10-31T16:33:14.306814",
+    "ai_analysis": {
+      "detected_issue": "Garbage And Sanitation: Garbage dump near park entrance.",
+      "confidence": "88%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Solid Waste Management Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-2B1C36",
+    "title": "Streetlights And Electricity near Bengaluru",
+    "description": "Streetlight flickers occasionally.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination / exposed wiring",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.95,
+    "lon": 77.62,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 70.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.238507",
+    "updated_at": "2026-10-31T16:33:14.261072",
+    "ai_analysis": {
+      "detected_issue": "Streetlights And Electricity: Streetlight flickers occasionally.",
+      "confidence": "88%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-BCAD47",
+    "title": "Water Supply And Leakage near Bengaluru",
+    "description": "Water pipeline burst near Metro station.",
+    "category": "Water supply and leakage",
+    "subcategory": "Underground potable water pipe fissure",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.975,
+    "lon": 77.6,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "in_progress",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Water Supply & Sewerage Board",
+    "officer": {
+      "name": "Er. Arun Shenoy",
+      "designation": "Civic Operations Lead",
+      "phone": "+91 98455 66778"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.201432",
+    "updated_at": "2026-10-31T16:33:14.217251",
+    "ai_analysis": {
+      "detected_issue": "Water Supply And Leakage: Water pipeline burst near Metro station.",
+      "confidence": "88%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Water Supply & Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Er. Arun Shenoy",
+        "desc": "Work Order #BCAD47 issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "in-progress"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-07CEC1",
+    "title": "Live electric cable fallen on flooded road",
+    "description": "Critical danger! Live wire from BESCOM transformer is sparking on waterlogged street. Deadly hazard for school children.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination / exposed wiring",
+    "locality": "Whitefield",
+    "ward": "Ward 150",
+    "address": "Whitefield",
+    "lat": 12.985,
+    "lon": 77.744,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.163931",
+    "updated_at": "2026-10-31T16:33:14.163931",
+    "ai_analysis": {
+      "detected_issue": "Streetlights And Electricity: Critical danger! Live wire from BESCOM transformer is sparking on waterlogged street. Deadly hazard for school children.",
+      "confidence": "88%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids, vehicle axle damage, or pedestrian injuries"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-F3496C",
+    "title": "Drain water spilling on road",
+    "description": "Drain overflowing with foul water right outside Margosa Road bus stop.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain & sewage inundation",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9984,
+    "lon": 77.5716,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.148422",
+    "updated_at": "2026-10-31T16:33:14.148422",
+    "ai_analysis": {
+      "detected_issue": "Drainage And Sewage: Drain overflowing with foul water right outside Margosa Road bus stop.",
+      "confidence": "88%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Storm Water Drainage & Sewage Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-F81038",
+    "title": "Open drain overflow",
+    "description": "Open storm drain overflowing on Margosa Road Malleshwaram.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain & sewage inundation",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.133895",
+    "updated_at": "2026-10-31T16:33:14.133895",
+    "ai_analysis": {
+      "detected_issue": "Drainage And Sewage: Open storm drain overflowing on Margosa Road Malleshwaram.",
+      "confidence": "88%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Storm Water Drainage & Sewage Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-FA4BA1",
+    "title": "Garbage And Sanitation near HSR Layout",
+    "description": "Garbage has been accumulating outside our apartment for three days with terrible stench and stray dog hazard.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "HSR Layout",
+    "ward": "Ward 150",
+    "address": "HSR Layout",
+    "lat": 12.9116,
+    "lon": 77.6534,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.118907",
+    "updated_at": "2026-10-31T16:33:14.118907",
+    "ai_analysis": {
+      "detected_issue": "Garbage And Sanitation: Garbage has been accumulating outside our apartment for three days with terrible stench and stray dog hazard.",
+      "confidence": "88%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Solid Waste Management Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-701180",
+    "title": "Deep dangerous pothole",
+    "description": "There is a massive pothole in the middle of 100ft road near Indiranagar KFC. Causing bikes to slip.",
+    "category": "Roads and potholes",
+    "subcategory": "Deep asphalt pothole / road depression",
+    "locality": "Indiranagar",
+    "ward": "Ward 112",
+    "address": "Indiranagar",
+    "lat": 12.9719,
+    "lon": 77.6412,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Road Infrastructure & Engineering Department",
+    "officer": {
+      "name": "Er. Rajesh Verma",
+      "designation": "Executive Engineer (Roads)",
+      "phone": "+91 98450 11223"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:33:14.093194",
+    "updated_at": "2026-10-31T16:33:14.093194",
+    "ai_analysis": {
+      "detected_issue": "Roads And Potholes: There is a massive pothole in the middle of 100ft road near Indiranagar KFC. Causing bikes to slip.",
+      "confidence": "88%",
+      "suggested_department": "Road Infrastructure & Engineering Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids, vehicle axle damage, or pedestrian injuries"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:33",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:33",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Road Infrastructure & Engineering Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Road Infrastructure & Engineering Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-1EE47F",
+    "title": "Water Supply And Leakage: Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+    "description": "Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+    "category": "Water supply and leakage",
+    "subcategory": "Citizen-reviewed classification",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Water Supply and Sewerage Board",
+    "officer": {
+      "name": "Er. S. Narayanan",
+      "designation": "Assistant Executive Engineer (BWSSB)",
+      "phone": "+91 98451 22334"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:52.123144",
+    "updated_at": "2026-10-31T16:32:52.123144",
+    "ai_analysis": {
+      "detected_issue": "Water Supply And Leakage: Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+      "confidence": "95%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Citizen reviewed priority: High"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Water Supply and Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Water Supply and Sewerage Board",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-C792B7",
+    "title": "Garbage And Sanitation near Bengaluru",
+    "description": "Garbage dump near park entrance.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.96,
+    "lon": 77.63,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "disputed",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:52.064067",
+    "updated_at": "2026-10-31T16:32:52.080663",
+    "ai_analysis": {
+      "detected_issue": "Garbage And Sanitation: Garbage dump near park entrance.",
+      "confidence": "88%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Solid Waste Management Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-49AC51",
+    "title": "Streetlights And Electricity near Bengaluru",
+    "description": "Streetlight flickers occasionally.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination / exposed wiring",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.95,
+    "lon": 77.62,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 70.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:52.022697",
+    "updated_at": "2026-10-31T16:32:52.039952",
+    "ai_analysis": {
+      "detected_issue": "Streetlights And Electricity: Streetlight flickers occasionally.",
+      "confidence": "88%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-403B09",
+    "title": "Water Supply And Leakage near Bengaluru",
+    "description": "Water pipeline burst near Metro station.",
+    "category": "Water supply and leakage",
+    "subcategory": "Underground potable water pipe fissure",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.975,
+    "lon": 77.6,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "in_progress",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Water Supply & Sewerage Board",
+    "officer": {
+      "name": "Er. Arun Shenoy",
+      "designation": "Civic Operations Lead",
+      "phone": "+91 98455 66778"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:51.979392",
+    "updated_at": "2026-10-31T16:32:51.999639",
+    "ai_analysis": {
+      "detected_issue": "Water Supply And Leakage: Water pipeline burst near Metro station.",
+      "confidence": "88%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Water Supply & Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Er. Arun Shenoy",
+        "desc": "Work Order #403B09 issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "in-progress"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-807260",
+    "title": "Live electric cable fallen on flooded road",
+    "description": "Critical danger! Live wire from BESCOM transformer is sparking on waterlogged street. Deadly hazard for school children.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination / exposed wiring",
+    "locality": "Whitefield",
+    "ward": "Ward 150",
+    "address": "Whitefield",
+    "lat": 12.985,
+    "lon": 77.744,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:51.942007",
+    "updated_at": "2026-10-31T16:32:51.942007",
+    "ai_analysis": {
+      "detected_issue": "Streetlights And Electricity: Critical danger! Live wire from BESCOM transformer is sparking on waterlogged street. Deadly hazard for school children.",
+      "confidence": "88%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids, vehicle axle damage, or pedestrian injuries"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-01C0FE",
+    "title": "Drain water spilling on road",
+    "description": "Drain overflowing with foul water right outside Margosa Road bus stop.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain & sewage inundation",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9984,
+    "lon": 77.5716,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:51.926882",
+    "updated_at": "2026-10-31T16:32:51.926882",
+    "ai_analysis": {
+      "detected_issue": "Drainage And Sewage: Drain overflowing with foul water right outside Margosa Road bus stop.",
+      "confidence": "88%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Storm Water Drainage & Sewage Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-A2654C",
+    "title": "Open drain overflow",
+    "description": "Open storm drain overflowing on Margosa Road Malleshwaram.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain & sewage inundation",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:51.911499",
+    "updated_at": "2026-10-31T16:32:51.911499",
+    "ai_analysis": {
+      "detected_issue": "Drainage And Sewage: Open storm drain overflowing on Margosa Road Malleshwaram.",
+      "confidence": "88%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Storm Water Drainage & Sewage Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-EF4644",
+    "title": "Garbage And Sanitation near HSR Layout",
+    "description": "Garbage has been accumulating outside our apartment for three days with terrible stench and stray dog hazard.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "HSR Layout",
+    "ward": "Ward 150",
+    "address": "HSR Layout",
+    "lat": 12.9116,
+    "lon": 77.6534,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:51.894276",
+    "updated_at": "2026-10-31T16:32:51.894276",
+    "ai_analysis": {
+      "detected_issue": "Garbage And Sanitation: Garbage has been accumulating outside our apartment for three days with terrible stench and stray dog hazard.",
+      "confidence": "88%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Solid Waste Management Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-43EAAE",
+    "title": "Deep dangerous pothole",
+    "description": "There is a massive pothole in the middle of 100ft road near Indiranagar KFC. Causing bikes to slip.",
+    "category": "Roads and potholes",
+    "subcategory": "Deep asphalt pothole / road depression",
+    "locality": "Indiranagar",
+    "ward": "Ward 112",
+    "address": "Indiranagar",
+    "lat": 12.9719,
+    "lon": 77.6412,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Road Infrastructure & Engineering Department",
+    "officer": {
+      "name": "Er. Rajesh Verma",
+      "designation": "Executive Engineer (Roads)",
+      "phone": "+91 98450 11223"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:32:51.866689",
+    "updated_at": "2026-10-31T16:32:51.866689",
+    "ai_analysis": {
+      "detected_issue": "Roads And Potholes: There is a massive pothole in the middle of 100ft road near Indiranagar KFC. Causing bikes to slip.",
+      "confidence": "88%",
+      "suggested_department": "Road Infrastructure & Engineering Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids, vehicle axle damage, or pedestrian injuries"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:32",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:32",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Road Infrastructure & Engineering Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Road Infrastructure & Engineering Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-D6BCB2",
+    "title": "Water Supply And Leakage: Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+    "description": "Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+    "category": "Water supply and leakage",
+    "subcategory": "Citizen-reviewed classification",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Water Supply and Sewerage Board",
+    "officer": {
+      "name": "Er. S. Narayanan",
+      "designation": "Assistant Executive Engineer (BWSSB)",
+      "phone": "+91 98451 22334"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.801081",
+    "updated_at": "2026-10-31T16:18:19.801081",
+    "ai_analysis": {
+      "detected_issue": "Water Supply And Leakage: Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+      "confidence": "95%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Citizen reviewed priority: High"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Water Supply and Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Water Supply and Sewerage Board",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-5BE41A",
+    "title": "Garbage And Sanitation near Bengaluru",
+    "description": "Garbage dump near park entrance.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.96,
+    "lon": 77.63,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "disputed",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.689877",
+    "updated_at": "2026-10-31T16:18:19.709843",
+    "ai_analysis": {
+      "detected_issue": "Garbage And Sanitation: Garbage dump near park entrance.",
+      "confidence": "88%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Solid Waste Management Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-1FA044",
+    "title": "Streetlights And Electricity near Bengaluru",
+    "description": "Streetlight flickers occasionally.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination / exposed wiring",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.95,
+    "lon": 77.62,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 70.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.641861",
+    "updated_at": "2026-10-31T16:18:19.660197",
+    "ai_analysis": {
+      "detected_issue": "Streetlights And Electricity: Streetlight flickers occasionally.",
+      "confidence": "88%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-A6D4FE",
+    "title": "Water Supply And Leakage near Bengaluru",
+    "description": "Water pipeline burst near Metro station.",
+    "category": "Water supply and leakage",
+    "subcategory": "Underground potable water pipe fissure",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.975,
+    "lon": 77.6,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "in_progress",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Water Supply & Sewerage Board",
+    "officer": {
+      "name": "Er. Arun Shenoy",
+      "designation": "Civic Operations Lead",
+      "phone": "+91 98455 66778"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.595965",
+    "updated_at": "2026-10-31T16:18:19.614811",
+    "ai_analysis": {
+      "detected_issue": "Water Supply And Leakage: Water pipeline burst near Metro station.",
+      "confidence": "88%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Water Supply & Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Er. Arun Shenoy",
+        "desc": "Work Order #A6D4FE issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "in-progress"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-3CB459",
+    "title": "Live electric cable fallen on flooded road",
+    "description": "Critical danger! Live wire from BESCOM transformer is sparking on waterlogged street. Deadly hazard for school children.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination / exposed wiring",
+    "locality": "Whitefield",
+    "ward": "Ward 150",
+    "address": "Whitefield",
+    "lat": 12.985,
+    "lon": 77.744,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.533589",
+    "updated_at": "2026-10-31T16:18:19.533589",
+    "ai_analysis": {
+      "detected_issue": "Streetlights And Electricity: Critical danger! Live wire from BESCOM transformer is sparking on waterlogged street. Deadly hazard for school children.",
+      "confidence": "88%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids, vehicle axle damage, or pedestrian injuries"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-E966A9",
+    "title": "Drain water spilling on road",
+    "description": "Drain overflowing with foul water right outside Margosa Road bus stop.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain & sewage inundation",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9984,
+    "lon": 77.5716,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.516560",
+    "updated_at": "2026-10-31T16:18:19.516560",
+    "ai_analysis": {
+      "detected_issue": "Drainage And Sewage: Drain overflowing with foul water right outside Margosa Road bus stop.",
+      "confidence": "88%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Storm Water Drainage & Sewage Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-6D2138",
+    "title": "Open drain overflow",
+    "description": "Open storm drain overflowing on Margosa Road Malleshwaram.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain & sewage inundation",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.498654",
+    "updated_at": "2026-10-31T16:18:19.498654",
+    "ai_analysis": {
+      "detected_issue": "Drainage And Sewage: Open storm drain overflowing on Margosa Road Malleshwaram.",
+      "confidence": "88%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Storm Water Drainage & Sewage Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-ECF7E3",
+    "title": "Garbage And Sanitation near HSR Layout",
+    "description": "Garbage has been accumulating outside our apartment for three days with terrible stench and stray dog hazard.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "HSR Layout",
+    "ward": "Ward 150",
+    "address": "HSR Layout",
+    "lat": 12.9116,
+    "lon": 77.6534,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.483566",
+    "updated_at": "2026-10-31T16:18:19.483566",
+    "ai_analysis": {
+      "detected_issue": "Garbage And Sanitation: Garbage has been accumulating outside our apartment for three days with terrible stench and stray dog hazard.",
+      "confidence": "88%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Solid Waste Management Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-BEF530",
+    "title": "Deep dangerous pothole",
+    "description": "There is a massive pothole in the middle of 100ft road near Indiranagar KFC. Causing bikes to slip.",
+    "category": "Roads and potholes",
+    "subcategory": "Deep asphalt pothole / road depression",
+    "locality": "Indiranagar",
+    "ward": "Ward 112",
+    "address": "Indiranagar",
+    "lat": 12.9719,
+    "lon": 77.6412,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Road Infrastructure & Engineering Department",
+    "officer": {
+      "name": "Er. Rajesh Verma",
+      "designation": "Executive Engineer (Roads)",
+      "phone": "+91 98450 11223"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T16:18:19.467794",
+    "updated_at": "2026-10-31T16:18:19.467794",
+    "ai_analysis": {
+      "detected_issue": "Roads And Potholes: There is a massive pothole in the middle of 100ft road near Indiranagar KFC. Causing bikes to slip.",
+      "confidence": "88%",
+      "suggested_department": "Road Infrastructure & Engineering Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids, vehicle axle damage, or pedestrian injuries"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 16:18",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 16:18",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Road Infrastructure & Engineering Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Road Infrastructure & Engineering Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-5BE138",
+    "title": "Water Supply And Leakage: Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+    "description": "Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+    "category": "Water supply and leakage",
+    "subcategory": "Citizen-reviewed classification",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Water Supply and Sewerage Board",
+    "officer": {
+      "name": "Er. S. Narayanan",
+      "designation": "Assistant Executive Engineer (BWSSB)",
+      "phone": "+91 98451 22334"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.218009",
+    "updated_at": "2026-10-31T14:09:00.218009",
+    "ai_analysis": {
+      "detected_issue": "Water Supply And Leakage: Large water main rupture leaking thousands of liters on Margosa road Malleshwaram",
+      "confidence": "95%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Citizen reviewed priority: High"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Water Supply and Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Water Supply and Sewerage Board",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-5C0AF0",
+    "title": "Garbage And Sanitation near Bengaluru",
+    "description": "Garbage dump near park entrance.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.96,
+    "lon": 77.63,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "disputed",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.186430",
+    "updated_at": "2026-10-31T14:09:00.196482",
+    "ai_analysis": {
+      "detected_issue": "Garbage And Sanitation: Garbage dump near park entrance.",
+      "confidence": "88%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Solid Waste Management Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-11ADE4",
+    "title": "Streetlights And Electricity near Bengaluru",
+    "description": "Streetlight flickers occasionally.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination / exposed wiring",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.95,
+    "lon": 77.62,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 70.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.164467",
+    "updated_at": "2026-10-31T14:09:00.174034",
+    "ai_analysis": {
+      "detected_issue": "Streetlights And Electricity: Streetlight flickers occasionally.",
+      "confidence": "88%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-7D1DC6",
+    "title": "Water Supply And Leakage near Bengaluru",
+    "description": "Water pipeline burst near Metro station.",
+    "category": "Water supply and leakage",
+    "subcategory": "Underground potable water pipe fissure",
+    "locality": "Bengaluru",
+    "ward": "Ward 150",
+    "address": "Bengaluru",
+    "lat": 12.975,
+    "lon": 77.6,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "in_progress",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Water Supply & Sewerage Board",
+    "officer": {
+      "name": "Er. Arun Shenoy",
+      "designation": "Civic Operations Lead",
+      "phone": "+91 98455 66778"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.142974",
+    "updated_at": "2026-10-31T14:09:00.152296",
+    "ai_analysis": {
+      "detected_issue": "Water Supply And Leakage: Water pipeline burst near Metro station.",
+      "confidence": "88%",
+      "suggested_department": "Water Supply and Sewerage Board",
+      "safety_concerns": [
+        "Moderate inconvenience to local residents and vehicular traffic"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Water Supply & Sewerage Board.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Er. Arun Shenoy",
+        "desc": "Work Order #7D1DC6 issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "in-progress"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-AF2B1E",
+    "title": "Live electric cable fallen on flooded road",
+    "description": "Critical danger! Live wire from BESCOM transformer is sparking on waterlogged street. Deadly hazard for school children.",
+    "category": "Streetlights and electricity",
+    "subcategory": "Non-functioning overhead illumination / exposed wiring",
+    "locality": "Whitefield",
+    "ward": "Ward 150",
+    "address": "Whitefield",
+    "lat": 12.985,
+    "lon": 77.744,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Electricity Supply and Public Lighting Department",
+    "officer": {
+      "name": "Er. Priya Hegde",
+      "designation": "Divisional Engineer (BESCOM)",
+      "phone": "+91 98453 44556"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.118580",
+    "updated_at": "2026-10-31T14:09:00.118580",
+    "ai_analysis": {
+      "detected_issue": "Streetlights And Electricity: Critical danger! Live wire from BESCOM transformer is sparking on waterlogged street. Deadly hazard for school children.",
+      "confidence": "88%",
+      "suggested_department": "Electricity Supply and Public Lighting Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids, vehicle axle damage, or pedestrian injuries"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Electricity Supply and Public Lighting Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Electricity Supply and Public Lighting Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-8AEC99",
+    "title": "Drain water spilling on road",
+    "description": "Drain overflowing with foul water right outside Margosa Road bus stop.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain & sewage inundation",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9984,
+    "lon": 77.5716,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.106745",
+    "updated_at": "2026-10-31T14:09:00.106745",
+    "ai_analysis": {
+      "detected_issue": "Drainage And Sewage: Drain overflowing with foul water right outside Margosa Road bus stop.",
+      "confidence": "88%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Storm Water Drainage & Sewage Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-7CB487",
+    "title": "Open drain overflow",
+    "description": "Open storm drain overflowing on Margosa Road Malleshwaram.",
+    "category": "Drainage and sewage",
+    "subcategory": "Clogged storm water drain & sewage inundation",
+    "locality": "Malleshwaram",
+    "ward": "Ward 150",
+    "address": "Malleshwaram",
+    "lat": 12.9982,
+    "lon": 77.5714,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": null,
+    "status": "submitted",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Storm Water Drainage & Sewage Department",
+    "officer": {
+      "name": "Er. Vikram Gowda",
+      "designation": "Senior Drainage Inspector",
+      "phone": "+91 98454 55667"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.096740",
+    "updated_at": "2026-10-31T14:09:00.096740",
+    "ai_analysis": {
+      "detected_issue": "Drainage And Sewage: Open storm drain overflowing on Margosa Road Malleshwaram.",
+      "confidence": "88%",
+      "suggested_department": "Storm Water Drainage & Sewage Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Storm Water Drainage & Sewage Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assignment Pending",
+        "time": "Awaiting SLA dispatch",
+        "actor": "Storm Water Drainage & Sewage Department",
+        "desc": "Assigned to ward desk. Field engineer allocation in queue.",
+        "status": "pending"
+      },
+      {
+        "step": 4,
+        "title": "Field Crew Deployment",
+        "time": "Pending dispatch",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Awaiting scheduled road/pipeline repair slot.",
+        "status": "pending"
+      },
+      {
+        "step": 5,
+        "title": "Resolution & Verification",
+        "time": "Target: Within 24-48 hrs",
+        "actor": "Municipal Inspection Unit",
+        "desc": "Post-repair photographic audit and quality check.",
+        "status": "pending"
+      }
+    ],
+    "feedback": null
+  },
+  {
+    "id": "CP-2026-C80B0B",
+    "title": "Garbage And Sanitation near HSR Layout",
+    "description": "Garbage has been accumulating outside our apartment for three days with terrible stench and stray dog hazard.",
+    "category": "Garbage and sanitation",
+    "subcategory": "Illegal roadside solid waste accumulation",
+    "locality": "HSR Layout",
+    "ward": "Ward 150",
+    "address": "HSR Layout",
+    "lat": 12.9116,
+    "lon": 77.6534,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": "assets/uploads/evidence_pothole_1.svg",
+    "status": "resolved",
+    "severity": "High",
+    "severity_score": 75.0,
+    "assigned_department": "Solid Waste Management Department",
+    "officer": {
+      "name": "Dr. K. Srinivas",
+      "designation": "Chief Health Officer (Sanitation)",
+      "phone": "+91 98452 33445"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.088530",
+    "updated_at": "2026-10-31T14:09:00.088530",
+    "ai_analysis": {
+      "detected_issue": "Garbage And Sanitation: Garbage has been accumulating outside our apartment for three days with terrible stench and stray dog hazard.",
+      "confidence": "88%",
+      "suggested_department": "Solid Waste Management Department",
+      "safety_concerns": [
+        "Severe health hazard: stagnant sewage vector breeding and airborne pathogens"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as High. Auto-routed to Solid Waste Management Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Dr. K. Srinivas",
+        "desc": "Work Order #C80B0B issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "completed"
+      },
+      {
+        "step": 5,
+        "title": "Work Completed & Verified",
+        "time": "2026-10-31 14:30",
+        "actor": "Dr. K. Srinivas",
+        "desc": "Repair completed. Photographic evidence uploaded and verified.",
+        "status": "completed"
+      },
+      {
+        "step": 6,
+        "title": "Citizen Sign-off & Case Closed",
+        "time": "2026-10-31 15:45",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Resolution confirmed with 5-star rating. Grievance closed.",
+        "status": "completed"
+      }
+    ],
+    "feedback": {
+      "rating": 5,
+      "comment": "Issue was inspected and resolved efficiently by the ward team. Thank you!"
+    }
+  },
+  {
+    "id": "CP-2026-0AFBDF",
+    "title": "Deep dangerous pothole",
+    "description": "There is a massive pothole in the middle of 100ft road near Indiranagar KFC. Causing bikes to slip.",
+    "category": "Roads and potholes",
+    "subcategory": "Deep asphalt pothole / road depression",
+    "locality": "Indiranagar",
+    "ward": "Ward 112",
+    "address": "Indiranagar",
+    "lat": 12.9719,
+    "lon": 77.6412,
+    "media_urls": [
+      "assets/uploads/evidence_pothole_1.svg"
+    ],
+    "resolved_photo": "assets/uploads/evidence_pothole_1.svg",
+    "status": "resolved",
+    "severity": "Medium",
+    "severity_score": 45.0,
+    "assigned_department": "Road Infrastructure & Engineering Department",
+    "officer": {
+      "name": "Er. Rajesh Verma",
+      "designation": "Executive Engineer (Roads)",
+      "phone": "+91 98450 11223"
+    },
+    "upvotes_count": 1,
+    "created_at": "2026-10-31T14:09:00.077861",
+    "updated_at": "2026-10-31T14:09:00.077861",
+    "ai_analysis": {
+      "detected_issue": "Roads And Potholes: There is a massive pothole in the middle of 100ft road near Indiranagar KFC. Causing bikes to slip.",
+      "confidence": "88%",
+      "suggested_department": "Road Infrastructure & Engineering Department",
+      "safety_concerns": [
+        "High risk of two-wheeler skids, vehicle axle damage, or pedestrian injuries"
+      ],
+      "sla_hours": 36,
+      "duplicate_status": "No duplicates found within 350m"
+    },
+    "timeline": [
+      {
+        "step": 1,
+        "title": "Complaint Registered",
+        "time": "2026-10-31 14:09",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Grievance submitted via CityPulse Citizen Web with GPS coordinates.",
+        "status": "completed"
+      },
+      {
+        "step": 2,
+        "title": "AI Triage & Classification",
+        "time": "2026-10-31 14:09",
+        "actor": "CityPulse Gemini Engine",
+        "desc": "Severity scored as Medium. Auto-routed to Road Infrastructure & Engineering Department.",
+        "status": "completed"
+      },
+      {
+        "step": 3,
+        "title": "Officer Assigned & Work Order Dispatched",
+        "time": "2026-10-30 11:30",
+        "actor": "Er. Rajesh Verma",
+        "desc": "Work Order #0AFBDF issued. Inspection scheduled with Ward Crew.",
+        "status": "completed"
+      },
+      {
+        "step": 4,
+        "title": "Maintenance Crew On-Site",
+        "time": "2026-10-31 09:15",
+        "actor": "Ward Rapid Action Crew",
+        "desc": "Ground equipment and maintenance personnel actively executing repair.",
+        "status": "completed"
+      },
+      {
+        "step": 5,
+        "title": "Work Completed & Verified",
+        "time": "2026-10-31 14:30",
+        "actor": "Er. Rajesh Verma",
+        "desc": "Repair completed. Photographic evidence uploaded and verified.",
+        "status": "completed"
+      },
+      {
+        "step": 6,
+        "title": "Citizen Sign-off & Case Closed",
+        "time": "2026-10-31 15:45",
+        "actor": "Citizen Aarav Sharma",
+        "desc": "Resolution confirmed with 5-star rating. Grievance closed.",
+        "status": "completed"
+      }
+    ],
+    "feedback": {
+      "rating": 5,
+      "comment": "Issue was inspected and resolved efficiently by the ward team. Thank you!"
+    }
+  }
+];
+
+const DEPARTMENTS = [
+  "Road Infrastructure & Engineering Department",
+  "Water Supply and Sewerage Board",
+  "Solid Waste Management Department",
+  "Electricity Supply and Public Lighting Department",
+  "Storm Water Drainage & Sewage Department",
+  "Public Works & General Civic Administration"
+];
+
+const WARDS = [
+  { id: "Ward 112", name: "Ward 112 - Domlur / Indiranagar", locality: "Indiranagar", zone: "East Zone" },
+  { id: "Ward 151", name: "Ward 151 - Koramangala", locality: "Koramangala", zone: "South Zone" },
+  { id: "Ward 174", name: "Ward 174 - HSR Layout", locality: "HSR Layout", zone: "South Zone" },
+  { id: "Ward 65",  name: "Ward 65 - Kadu Malleshwaram", locality: "Malleshwaram", zone: "West Zone" },
+  { id: "Ward 84",  name: "Ward 84 - Hagadur / Whitefield", locality: "Whitefield", zone: "Mahadevapura Zone" },
+  { id: "Ward 111", name: "Ward 111 - Shantala Nagar", locality: "Central Ward", zone: "Central Zone" }
+];
+
+const CATEGORIES = [
+  { id: "Roads and potholes", label: "Roads & Potholes", icon: "road", color: "amber" },
+  { id: "Water supply and leakage", label: "Water Supply & Leakage", icon: "droplet", color: "cyan" },
+  { id: "Garbage and sanitation", label: "Garbage & Sanitation", icon: "trash", color: "emerald" },
+  { id: "Streetlights and electricity", label: "Streetlights & Electricity", icon: "zap", color: "purple" },
+  { id: "Drainage and sewage", label: "Drainage & Sewage", icon: "wrench", color: "blue" },
+  { id: "Other civic issues", label: "Public Safety & Other", icon: "alertTriangle", color: "slate" }
+];
+
+const MockDB = {
+  STORAGE_KEY: "citypulse_complaints_v1",
+
+  init() {
+    const saved = localStorage.getItem(this.STORAGE_KEY);
+    if (!saved) {
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(INITIAL_COMPLAINTS));
+    }
+  },
+
+  getAllComplaints() {
+    this.init();
+    try {
+      const raw = localStorage.getItem(this.STORAGE_KEY);
+      return raw ? JSON.parse(raw) : INITIAL_COMPLAINTS;
+    } catch (e) {
+      console.warn("Error reading mock DB from localStorage", e);
+      return INITIAL_COMPLAINTS;
+    }
+  },
+
+  saveAll(complaints) {
+    try {
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(complaints));
+      return true;
+    } catch (e) {
+      console.error("Error writing to localStorage", e);
+      return false;
+    }
+  },
+
+  resetToDefault() {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(INITIAL_COMPLAINTS));
+    return INITIAL_COMPLAINTS;
+  },
+
+  getComplaintById(id) {
+    const list = this.getAllComplaints();
+    return list.find(c => c.id.toLowerCase() === (id || "").trim().toLowerCase()) || null;
+  },
+
+  createComplaint(data) {
+    const list = this.getAllComplaints();
+    const now = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const timeStr = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    
+    // Generate unique CityPulse ticket ID
+    const randomHex = Math.floor(1000 + Math.random() * 9000);
+    const newId = `CP-2026-N${randomHex}`;
+
+    const dept = data.assigned_department || "Road Infrastructure & Engineering Department";
+    const newComplaint = {
+      id: newId,
+      title: data.title,
+      description: data.description,
+      category: data.category || "Roads and potholes",
+      subcategory: data.subcategory || data.category || "Civic Infrastructure",
+      locality: data.locality || "Central Ward",
+      ward: data.ward || "Ward 112 - Domlur / Indiranagar",
+      address: data.address || "Outer Ring Road, Bengaluru",
+      lat: parseFloat(data.lat || 12.9716),
+      lon: parseFloat(data.lon || 77.5946),
+      media_urls: data.media_urls && data.media_urls.length ? data.media_urls : ["assets/uploads/evidence_pothole_1.svg"],
+      resolved_photo: null,
+      status: "submitted",
+      severity: data.severity || "High",
+      severity_score: parseFloat(data.severity_score || 72.0),
+      assigned_department: dept,
+      officer: {
+        name: "Er. Rajesh Verma",
+        designation: "Executive Engineer (Roads)",
+        phone: "+91 98450 11223"
+      },
+      upvotes_count: 1,
+      created_at: now.toISOString(),
+      updated_at: now.toISOString(),
+      ai_analysis: {
+        detected_issue: data.title,
+        confidence: "96.4%",
+        suggested_department: dept,
+        safety_concerns: data.safety_concerns || ["Safety risk flagged by CityPulse Multimodal AI", "Prioritized for ward inspection"],
+        sla_hours: 24,
+        duplicate_status: "Verified Unique - Zero collision in 350m radius"
+      },
+      timeline: [
+        {
+          step: 1,
+          title: "Complaint Registered",
+          time: timeStr,
+          actor: "Citizen Aarav Sharma",
+          desc: "Grievance registered in CityPulse system with geolocation verification.",
+          status: "completed"
+        },
+        {
+          step: 2,
+          title: "AI Multimodal Triage Completed",
+          time: timeStr,
+          actor: "CityPulse AI Engine",
+          desc: `Computer vision & semantic NLP scored priority as ${data.severity || 'High'}. Dispatched to ${dept}.`,
+          status: "completed"
+        },
+        {
+          step: 3,
+          title: "Ward Officer Assigned",
+          time: "In progress",
+          actor: dept,
+          desc: "Work order dispatched. Assigned to Ward Desk for immediate action.",
+          status: "in-progress"
+        },
+        {
+          step: 4,
+          title: "Field Crew Deployment",
+          time: "Target: Within 12 Hours",
+          actor: "Municipal Rapid Action Unit",
+          desc: "Repair crew dispatched to address physical site issue.",
+          status: "pending"
+        },
+        {
+          step: 5,
+          title: "Resolution & Verification",
+          time: "Target: 24-48 Hours",
+          actor: "Municipal Quality Inspector",
+          desc: "Post-completion evidence upload and citizen closure check.",
+          status: "pending"
+        }
+      ],
+      feedback: null
+    };
+
+    list.unshift(newComplaint);
+    const saved = this.saveAll(list);
+    // Set after saving so this flag is never written to storage.
+    // The caller uses it to tell the citizen the report was not kept.
+    newComplaint.not_persisted = !saved;
+    return newComplaint;
+  },
+
+  updateComplaintStatus(id, newStatus, notes = "") {
+    const list = this.getAllComplaints();
+    const item = list.find(c => c.id.toLowerCase() === id.toLowerCase());
+    if (!item) return null;
+
+    item.status = newStatus;
+    item.updated_at = new Date().toISOString();
+    
+    const now = new Date();
+    const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+    if (newStatus === "resolved") {
+      if (!item.resolved_photo) {
+        item.resolved_photo = "assets/uploads/resolved_pothole_1.svg";
+      }
+      item.timeline.forEach(t => t.status = "completed");
+      item.timeline.push({
+        step: 6,
+        title: "Marked Resolved by Municipal Admin",
+        time: timeStr,
+        actor: "Civic Admin BBMP",
+        desc: notes || "Official repair verified and post-repair photographic evidence archived.",
+        status: "completed"
+      });
+    } else if (newStatus === "in_progress") {
+      const step4 = item.timeline.find(t => t.step === 4);
+      if (step4) step4.status = "in-progress";
+      const step3 = item.timeline.find(t => t.step === 3);
+      if (step3) step3.status = "completed";
+    }
+
+    this.saveAll(list);
+    return item;
+  },
+
+  addFeedback(id, rating, comment = "") {
+    const list = this.getAllComplaints();
+    const item = list.find(c => c.id.toLowerCase() === id.toLowerCase());
+    if (!item) return null;
+
+    item.feedback = {
+      rating: parseInt(rating, 10) || 5,
+      comment: comment || "Resolution verified by citizen.",
+      submitted_at: new Date().toISOString()
+    };
+    item.status = "resolved";
+    this.saveAll(list);
+    return item;
+  },
+
+  upvoteComplaint(id) {
+    const list = this.getAllComplaints();
+    const item = list.find(c => c.id.toLowerCase() === id.toLowerCase());
+    if (!item) return null;
+    item.upvotes_count = (item.upvotes_count || 0) + 1;
+    this.saveAll(list);
+    return item.upvotes_count;
+  },
+
+  getStatistics() {
+    const list = this.getAllComplaints();
+    const total = list.length;
+    const pending = list.filter(c => c.status === "submitted" || c.status === "assigned").length;
+    const inProgress = list.filter(c => c.status === "in_progress").length;
+    const resolved = list.filter(c => c.status === "resolved").length;
+    const critical = list.filter(c => c.severity === "Critical" || c.severity === "High").length;
+
+    // Cumulative simulated city statistics
+    const platformTotal = 48290 + total;
+    const platformResolved = 47520 + resolved;
+    const slaCompliance = ((platformResolved / platformTotal) * 100).toFixed(1);
+
+    return {
+      total,
+      pending,
+      inProgress,
+      resolved,
+      critical,
+      platformTotal,
+      platformResolved,
+      slaCompliance: slaCompliance + "%",
+      avgResponseHours: "18.4 hrs",
+      activeWards: 42
+    };
+  },
+
+  getCategoryDistribution() {
+    const list = this.getAllComplaints();
+    const counts = {};
+    CATEGORIES.forEach(cat => counts[cat.id] = 0);
+    list.forEach(c => {
+      if (counts[c.category] !== undefined) {
+        counts[c.category]++;
+      } else {
+        counts["Other civic issues"] = (counts["Other civic issues"] || 0) + 1;
+      }
+    });
+    return counts;
+  },
+
+  getWardStatistics() {
+    const list = this.getAllComplaints();
+    return WARDS.map(w => {
+      const wardComplaints = list.filter(c => c.ward && c.ward.includes(w.id));
+      const total = wardComplaints.length;
+      const resolved = wardComplaints.filter(c => c.status === "resolved").length;
+      const rate = total > 0 ? Math.round((resolved / total) * 100) : 92;
+      return {
+        ...w,
+        totalComplaints: total,
+        resolvedComplaints: resolved,
+        pendingComplaints: total - resolved,
+        resolutionRate: `${rate}%`
+      };
+    });
+  }
+};
+
+// Auto initialize on load
+MockDB.init();

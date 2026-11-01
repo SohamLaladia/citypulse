@@ -1,0 +1,235 @@
+/* ==========================================================================
+   CITYPULSE - Modern Smart-City SaaS Design System
+   Palette: Navy Blue (#0B132B, #1C2541), Crisp White/Slate, Electric Blue (#00D2FF, #38BDF8, #2563EB)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --navy-950: #060b18;
+  --navy-900: #0B132B;
+  --navy-850: #101a38;
+  --navy-800: #131F42;
+  --navy-700: #1C2541;
+  --navy-600: #273559;
+  --electric-500: #00D2FF;
+  --electric-400: #38BDF8;
+  --smart-blue: #2563EB;
+  --smart-blue-dark: #1D4ED8;
+  --emerald-500: #10B981;
+  --amber-500: #F59E0B;
+  --rose-500: #EF4444;
+}
+
+/* Base Body Styles */
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0B132B;
+  color: #F8FAFC;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Typography */
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Electric Glow & Gradients */
+.text-electric-gradient {
+  background: linear-gradient(135deg, #38BDF8 0%, #00D2FF 50%, #818CF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-navy-gradient {
+  background: linear-gradient(135deg, #0B132B 0%, #1E3A8A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-electric-gradient {
+  background: linear-gradient(135deg, #2563EB 0%, #0284C7 50%, #00D2FF 100%);
+}
+
+.bg-electric-gradient-hover:hover {
+  background: linear-gradient(135deg, #1D4ED8 0%, #0369A1 50%, #38BDF8 100%);
+}
+
+.electric-glow {
+  box-shadow: 0 0 25px -4px rgba(0, 210, 255, 0.35);
+}
+
+.electric-glow-sm {
+  box-shadow: 0 0 15px -2px rgba(56, 189, 248, 0.25);
+}
+
+.navy-card {
+  background: rgba(19, 31, 66, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 1rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navy-card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 16px 36px -10px rgba(0, 210, 255, 0.12);
+}
+
+.navy-card-solid {
+  background: #131F42;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 1rem;
+}
+
+/* Light Mode / Crisp White Cards (for clean data surfaces) */
+.white-surface {
+  background: #FFFFFF;
+  color: #0F172A;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+}
+
+/* Pulse radar indicator */
+@keyframes radarPing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+.radar-ping {
+  animation: radarPing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Live Marquee Ticker */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.marquee-container:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle Shimmer for AI card */
+@keyframes aiShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.ai-pulse-border {
+  position: relative;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.ai-pulse-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(90deg, #2563EB, #00D2FF, #8B5CF6, #2563EB);
+  background-size: 300% 100%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: aiShimmer 4s ease infinite;
+}
+
+/* Timeline Stepper connector line */
+.timeline-stem {
+  position: absolute;
+  top: 2rem;
+  left: 1.25rem;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #00D2FF, #2563EB 60%, rgba(56, 189, 248, 0.15));
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C2541;
+  border-radius: 9999px;
+  border: 2px solid #0B132B;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #273559;
+}
+
+/* Tab active transitions */
+.tab-active {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(0, 210, 255, 0.15) 100%);
+  border-color: rgba(56, 189, 248, 0.45);
+  color: #38BDF8;
+  font-weight: 600;
+}
+
+/* Interactive Map Container */
+#complaint-mini-map {
+  height: 220px;
+  width: 100%;
+  border-radius: 0.75rem;
+  background: #0B132B;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom Status Badges */
+.badge-submitted {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.badge-assigned {
+  background: rgba(168, 85, 247, 0.12);
+  color: #C084FC;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.badge-in_progress {
+  background: rgba(245, 158, 11, 0.12);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-resolved {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-critical {
+  background: rgba(239, 68, 68, 0.12);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Smooth page fade transition */
+.page-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

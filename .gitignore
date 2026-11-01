@@ -1,0 +1,44 @@
+# Python Bytecode & Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+
+# Virtual Environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Secrets
+!.env.example
+
+# Database & Runtime Data
+data/*.db
+data/*.sqlite3
+data/uploads/*
+!data/uploads/.gitkeep
+*.db
+*.sqlite3
+
+# OS Files
+.DS_Store
+._*
+__MACOSX/
+Thumbs.db
+Desktop.ini
+
+# IDE & Editor Files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
