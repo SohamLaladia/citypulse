@@ -233,4 +233,4 @@ citypulse/
 ---
 
 ## ⚖️ License
-Released under the MIT License. Developed for digital governance and public benefit.
+Released under the MIT License. Developed for Digital governance and public benefit.
